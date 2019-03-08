@@ -28,10 +28,14 @@ public class FileReader {
             File folder = new File(properties.getPath());
             File[] fileNames = folder.listFiles();
 
-            for (File file : fileNames) {
-                if (file.getName().contains("csv") || file.getName().contains("txt")) {
-                    processFile(file);
+            if (fileNames != null) {
+                for (File file : fileNames) {
+                    if (file.getName().contains("csv") || file.getName().contains("txt")) {
+                        processFile(file);
+                    }
                 }
+            } else {
+                System.out.println("In directory is no file for reading");
             }
 
             connection.close();
